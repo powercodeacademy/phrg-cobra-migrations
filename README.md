@@ -24,7 +24,7 @@ class AddBreedToCats < ActiveRecord::Migration[5.1]
 end
 ```
 
-2. If your migration simply adds data, such as creating a new row or rows in an existing table, then your migration file should live in the `db` directory on root. Nitro Developers call the root directory of `nitro-web` "Umbrella" because it holds all the components. Nitro Developer may call this type of migration a "data migration".
+2. If your migration simply adds or updates data, such as creating some new rows in an existing table or updating a field, then your migration file should live in the `db` directory on root. Nitro Developers call the root directory of `nitro-web` "Umbrella" because it holds all the components. Nitro Developers may call this type of migration a "data migration".
 
 #### Example data migration:
 
@@ -40,7 +40,7 @@ class UpdateCatBreeds < ActiveRecord::Migration[5.1]
 end
 ```
 
-When running a migration file in Umbrella, all you need to do is run `bin/rake db:migrate` on root. When running a migration file in a component, first run `bin/rake db:migrate` from the component's root directory, and then in from the root directory of `nitro-web` (Umbrella). To generate a migration file in Nitro, you can still use `rails g migration <MigrationFileName>`, whether you are creating a file for a component or Umbrella. Just invoke the command from the correct directory.
+When running a migration file in Umbrella, all you need to do is run `bin/rake db:migrate` on root. When running a migration file in a component, first run `bin/rake db:migrate` from the component's root directory, and then from the root directory of `nitro-web` (Umbrella). To generate a migration file in Nitro, you should still use `rails g migration <MigrationFileName>`, whether you are creating a migration for a component or for Umbrella. Just invoke this command from the correct directory.
 
 Nitro's data gets updated daily with new records and structure. So when it comes time for you to add a new migration, you should almost always start with reseting your local database. When reseting your local db, you start by pulling down a local data dump using the `bin/rake dev:load_recent` task from Umbrella. After this finishes, you reset the local database(s) for the component(s) you are working on using `bin/rake app:db:component:reset`. This must be run from the component's root directory.
 
