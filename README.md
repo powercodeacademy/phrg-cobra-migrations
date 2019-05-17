@@ -2,7 +2,7 @@
 
 Over the past few weeks we have learned how to use `rake db:create`, `rake db:migrate` and other `rake` database tasks to modify our project databases. However, since Nitro is made up of components, many of which have their own unique databases, the tools Nitro Developers use to run migrations are slightly different.
 
-You can still think of Nitro as one central data center that stores Power's information. But the technical reality is that Nitro is a collection of many smaller databases that are all stitched together.
+You can still think of Nitro as one central data center that stores Power's information. But the technical reality is that Nitro is a collection of many smaller databases schemas that are all stitched together.
 
 Bookmark [this powerhome StackOverflow Q/A right now](https://stackoverflow.com/c/powerhome/questions/114) and use it as reference when making database changes inside `nitro-web`.
 
